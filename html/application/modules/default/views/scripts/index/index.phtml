@@ -1,0 +1,41 @@
+<h1>
+    Papers
+</h1>
+<!-- <a href="/index/new" class="pull-right" id="add_object">+ Add paper</a> -->
+<div class="row"></div>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Paper name</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php
+        $order = 1;
+        foreach ($this->papers as $paper):
+            ?>
+            <tr id="paper-<?php echo $paper['id']; ?>">
+                <td><?php echo $order++; ?></td>
+                <td class="id"><?php echo $paper['id']; ?></td>
+                <td class="name title"><?php echo $paper['title']; ?></td>
+                <td><a href="/index/edit?id=<?php echo $paper['id']; ?>">Edit</a> <a href="#remove" class="remove_object">Remove</a></td>
+		<td>
+                    <?php if ($paper['type'] == 1): ?>
+                        <span class="label label-success">Approved</span>
+                    <?php elseif ($paper['type'] == 2): ?>
+                        <span class="label label-danger">Reject</span>
+                    <?php endif; ?>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+<?php
+echo $this->partial("layout/modal_info.phtml", array('title' => 'Upload paper', 'action' => '/paper/',
+    'fields' => array('name' => array('type' => 'fileUpload', 'option' => 'Paper')),
+    'controller_name' => 'paper'));
+echo $this->partial("layout/modal_remove.phtml", array('title' => 'Remove paper '));
+

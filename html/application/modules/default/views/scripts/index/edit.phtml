@@ -1,0 +1,150 @@
+<div class="container contentVMT">
+    <a class="removePaper" href="http://reenv2017-login.hust.edu.vn/">Withdraw this paper</a><br><br>
+    <span>Paper Status / Action</span>
+    <form action="/paper/update" method="post" enctype="multipart/form-data">
+
+        <table class="table table-bordered">
+            <tr class="mauXanh">
+                <th>1. Extended Abstract Submission</th>
+                <th>2. Extended Abstract Review</th>
+                <th>3. Copyright, Biography and Abstract</th>
+                <th>4. Documents Download</th>
+                <th>5. Registration</th>
+                <th>6. Presentation</th>
+                <th>7. Publication</th>
+            </tr>
+            <tr>
+                <td>
+                    Rnd: Abstract submitted <label for="paper-file"><a><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></label>
+                    <input type="file" id="paper-file" class="select-file" name="paper[file]" <?php echo $this->disable; ?>>
+                    <a href="<?php echo $this->paper['file']; ?>"><i class="fa fa-download" aria-hidden="true"></i></a>
+                </td>
+                <td>Rnd: Abstract reviewed <label for="paper-review"><a><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></label>
+                    <input type="file" id="paper-review" class="select-file" name="paper[review]">
+                    <a href="<?php echo $this->paper['review']; ?>"><i class="fa fa-download" aria-hidden="true"></i></a>
+		</td>
+                <td>
+                    <ul class="taiLieu">
+                        <li>
+                            Copyright upload <label for="copyright-file"><a><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></label>
+                            <input type="file" id="copyright-file" class="select-file" name="paper[copyright]" <?php echo $this->disable; ?>>
+                            <a href="<?php echo $this->paper['copyright']; ?>"><i class="fa fa-download" aria-hidden="true"></i></a>
+                        </li>
+                        <li>
+                            Speaker biography <label for="biography-file"><a><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></label>
+                            <input type="file" id="biography-file" class="select-file" name="paper[biography]" <?php echo $this->disable; ?> >
+                            <a href="<?php echo $this->paper['biography']; ?>"><i class="fa fa-download" aria-hidden="true"></i></a>
+                        </li>
+                        <li>
+                            Check your abstract  <label for="abstract-file"><a><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></label>
+                            <input type="file" id="abstract-file" class="select-file" name="paper[abstract]" <?php echo $this->disable; ?> >
+                            <a href="<?php echo $this->paper['abstract']; ?>"><i class="fa fa-download" aria-hidden="true"></i></a>
+                        </li>
+                    </ul>
+
+                </td>
+                <td><ul class="taiLieu">
+                        <li>Copyright form</li>
+                        <li>Speaker biography form</li>
+                        <li>Result notification letter</li>
+                        <li>Invitation letter (VISA support)</li>
+                    </ul></td>
+                <td><a href="#">[Details]</a></td>
+                <td>Not Open</td>
+                <td>Not Open</td>
+            </tr>
+        </table>
+        <span class="pull-right">Notes: *Form can be downloaded in <a href="https://re-env2017.hust.edu.vn/abstract-template">HERE</a></span>
+
+        <br><br><br>
+
+        <span>Paper Info:</span>
+        <table class="table table-bordered">
+            <tr class="mauXanh">
+                <th>List</th>
+                <th>Details</th>
+            </tr>
+            <tr>
+
+                <td>PID</td>
+                <td>
+                    <?php echo $this->paper['id']; ?>
+                    <input type="hidden" name="paper[id]" value="<?php echo $this->paper['id']; ?>">
+                </td>
+            </tr>
+            <tr>
+                <td>Paper title:</td>
+                <td>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="paper[title]" value="<?php echo $this->paper['title'] ?>" required <?php echo $this->disable; ?>>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Keywords:</td>
+                <td>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="paper[keywords]" value="<?php echo $this->paper['keywords'] ?>" required <?php echo $this->disable; ?>>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Presentation:</td>
+                <td>
+                    <div class="checkbox">
+                        <label><input type="checkbox" name="paper[vehicle]" value="oral" <?php if ($this->paper['vehicle'] == 'oral') echo 'checked'; ?> <?php echo $this->disable; ?>> Oral presentation</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" name="paper[vehicle]" value="poster" <?php if ($this->paper['vehicle'] == 'poster') echo 'checked'; ?> <?php echo $this->disable; ?>> Poster presentation</label>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Primary area:</td>
+                <td><select name="paper[primary_area]"> <?php echo $this->disable; ?>
+
+                    </select></td>
+            </tr>
+            <tr>
+                <td>Secondary area:</td>
+                <td><select name="paper[secondary_area]" <?php echo $this->disable; ?>>
+
+                    </select></td>
+            </tr>
+        </table>           
+
+        <br><br><br>
+
+        <span>Author Info:</span>
+        <input type="hidden" name="author[id]" value="<?php echo $this->author['id']; ?>" <?php echo $this->disable; ?>>
+        <table class="table table-bordered">
+            <tr class="mauXanh">
+                <th>Title</th>
+                <th>Name</th>
+                <th>Affiliation</th>
+                <th>Email</th>
+                <th>Country</th>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" name="author[title]" value="<?php echo $this->author['title']; ?>" <?php echo $this->disable; ?>><br>
+                </td>
+                <td>
+                    <input type="text" name="author[name]" value="<?php echo $this->author['name']; ?>" <?php echo $this->disable; ?>><br>
+                </td>
+                <td>
+                    <input type="text" name="author[affiliation]" value="<?php echo $this->author['affiliation']; ?>" <?php echo $this->disable; ?>><br>
+                </td>
+                <td><input type="email" name="author[email]" value="<?php echo $this->author['email']; ?>" <?php echo $this->disable; ?>></td>
+                <td> <input type="text" name="author[country]" value="<?php echo $this->author['country']; ?>" <?php echo $this->disable; ?>></td>
+            </tr>
+        </table>
+        <?php if($this->user['id'] == $this->paper['user_id']):?>
+            <button class="btn btn-success" type="submit">Save</button>
+        <?php endif;?>
+        <?php if($this->user['type'] == 2):?>
+            <button class="btn btn-primary" type="submit" name="paper[type]" value="1" onclick="return confirm('Are you sure you want to approve this paper?')">Approved</button>
+            <button class="btn btn-danger" type="submit" name="paper[type]" value="2" onclick="return confirm('Are you sure you want to reject this paper?')">Reject</button>
+        <?php endif;?>
+    </form>
+</div>

@@ -1,0 +1,34 @@
+<h1>
+    Users
+</h1>
+<div class="row"></div>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Email</th>
+            <th>Full name</th>
+            <th>Type</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php
+        $order = 1;
+        foreach ($this->users as $user):
+            ?>
+            <tr id="user-<?php echo $user['id']; ?>">
+                <td><?php echo $order++; ?></td>
+                <td class="id"><?php echo $user['id']; ?></td>
+                <td class="name title"><a href="<?php echo $paper['path']; ?>" class=""><?php echo $paper['name']; ?></a></td>
+                <td><a href="#edit" class="edit_object">Edit</a> <a href="#remove" class="remove_object">Remove</a></td>
+            </tr>
+<?php endforeach; ?>
+    </tbody>
+</table>
+<?php
+echo $this->partial("layout/modal_info.phtml", array('title' => 'Upload paper', 'action' => '/admin/user-',
+    'fields' => array('name' => array('type' => 'fileUpload', 'option' => 'Paper')),
+    'controller_name' => 'paper'));
+echo $this->partial("layout/modal_remove.phtml", array('title' => 'Remove paper '));

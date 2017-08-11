@@ -1,0 +1,145 @@
+<div class="container contentVMT">
+    <a class="removePaper" href="http://reenv2017-login.hust.edu.vn/">Withdraw this paper</a><br><br>
+    <span>Paper Status / Action</span>
+    <form action="/paper/create" method="post" enctype="multipart/form-data">
+        <table class="table table-bordered">
+            <tr class="mauXanh">
+                <th>1. Extended Abstract Submission</th>
+                <th>2. Extended Abstract Review</th>
+                <th>3. Copyright, Biography and Abstract</th>
+                <th>4. Documents Download</th>
+                <th>5. Registration</th>
+                <th>6. Presentation</th>
+                <th>7. Publication</th>
+            </tr>
+            <tr>
+                <td>
+                    Rnd: Abstract submitted <label for="paper-file"><a><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></label>
+                    <input type="file" id="paper-file" class="select-file" name="paper[file]" >
+                </td>
+                <td>Rnd: Abstract reviewed</td>
+                <td>
+                    <ul class="taiLieu">
+                        <li>
+                            Copyright upload <label for="copyright-file"><a><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></label>
+                            <input type="file" id="copyright-file" class="select-file" name="paper[copyright]" >
+                        </li>
+                        <li>
+                            Speaker biography <label for="biography-file"><a><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></label>
+                            <input type="file" id="biography-file" class="select-file" name="paper[biography]" >
+                        </li>
+                        <li>
+                            Check your abstract  <label for="abstract-file"><a><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></label>
+                            <input type="file" id="abstract-file" class="select-file" name="paper[abstract]" >
+                        </li>
+                    </ul>
+
+                </td>
+                <td><ul class="taiLieu">
+                        <li>Copyright form</li>
+                        <li>Speaker biography form</li>
+                        <li>Result notification letter</li>
+                        <li>Invitation letter (VISA support)</li>
+                    </ul></td>
+                <td><a href="#">[Details]</a></td>
+                <td>Not Open</td>
+                <td>Not Open</td>
+            </tr>
+        </table>
+        <span class="pull-right">Notes: *Form can be downloaded in <a href="https://re-env2017.hust.edu.vn/abstract-template">HERE</a></span>
+
+        <br><br><br>
+
+        <span>Paper Info:</span>
+        <table class="table table-bordered">
+            <tr class="mauXanh">
+                <th>List</th>
+                <th>Details</th>
+            </tr>
+            <tr>
+                <td>PID</td>
+                <td><a></a></td>
+            </tr>
+            <tr>
+                <td>Paper title:</td>
+                <td>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="paper[title]" value="" required>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Keywords:</td>
+                <td>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="paper[keywords]" value="" required>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Presentation:</td>
+                <td>
+                    <div class="checkbox">
+                        <label><input type="checkbox" name="paper[vehicle]" value="oral"> Oral presentation</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" name="paper[vehicle]" value="poster"> Poster presentation</label>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Primary area:</td>
+                <td><select name="paper[primary_area]">
+                	<option value="type1">Solid and hazardous waste management</option>
+  <option value="type2">Water and wastewater pollution and treatment</option>
+  <option value="type3">Environmental sanitation</option>
+  <option value="type4">Waste recycling</option>
+    <option value="type5">Air pollution control</option>
+      <option value="type6">Climate change</option>
+        <option value="type7">Environmental modelling</option>
+          <option value="type8">Human resource development in environmental engineering</option>
+                    </select></td>
+            </tr>
+            <tr>
+                <td>Secondary area:</td>
+                <td><select name="paper[secondary_area]">
+<option value="type1">Solid and hazardous waste management</option>
+  <option value="type2">Water and wastewater pollution and treatment</option>
+  <option value="type3">Environmental sanitation</option>
+  <option value="type4">Waste recycling</option>
+    <option value="type5">Air pollution control</option>
+      <option value="type6">Climate change</option>
+        <option value="type7">Environmental modelling</option>
+          <option value="type8">Human resource development in environmental engineering</option>
+                    </select></td>
+            </tr>
+        </table>           
+
+        <br><br><br>
+
+        <span>Author Info:</span>
+        <table class="table table-bordered">
+            <tr class="mauXanh">
+                <th>Title</th>
+                <th>Name</th>
+                <th>Affiliation</th>
+                <th>Email</th>
+                <th>Country</th>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" name="author[title]" value="Academic"><br>
+                </td>
+                <td>
+                    <input type="text" name="author[name]" value="Name"><br>
+                </td>
+                <td>
+                    <input type="text" name="author[affiliation]" value="Affiliation"><br>
+                </td>
+                <td><input type="email" name="author[email]"></td>
+                <td> <input type="text" name="author[country]" value="Country"></td>
+            </tr>
+        </table>
+        <button class="btn btn-success" type="submit">Save</button>
+    </form>
+</div>
